@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Arka Sengupta</title>
+    <link rel="stylesheet" href="stylemain.css">
+    <style>
+        /* Custom styles for the thank-you page */
+        .thank-you {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .thank-you h1 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        .thank-you p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+        .thank-you a {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        .thank-you a:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+        }
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 30px;
+        }
+        .checkmark path {
+            stroke: var(--accent-color);
+            stroke-width: 5;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 1.5s ease forwards;
+        }
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you">
+        <!-- Animated checkmark SVG -->
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle cx="26" cy="26" r="25" fill="none"/>
+            <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+        
+        <h1>Thank You!</h1>
+        <p>Your message has been sent successfully. I'll get back to you within 24 hours.</p>
+        <a href="/main.html">Return to Portfolio</a>
+    </div>
+
+    <script>
+        // Optional: Auto-redirect after 5 seconds
+        setTimeout(() => {
+            window.location.href = "/main.html";
+        }, 5000);
+    </script>
+</body>
+</html>
