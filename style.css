@@ -1,134 +1,125 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html , body {
+html, body {
     height: 100%;
     width: 100%;
+    overflow: hidden; /* Prevent scrolling during loading */
 }
-#main{
+
+#main {
     width: 100%;
     min-height: 100vh;
 }
-.loader{
-    position: absolute;
+
+.loader {
+    position: fixed; /* Changed from absolute to fixed for better mobile behavior */
     width: 100%;
     height: 100vh;
     background-color: rgb(255, 170, 0);
     animation: bgload 4s linear;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.zoom{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%)rotate(-6deg);/*as the top left is in the centre so it is used to make the centre of the element in centre of screen*/
-    font-size: 13vw;
-    font-family:'Zen Dots',Verdana;
+
+.zoom {
+    font-size: clamp(3rem, 13vw, 8rem); /* Responsive font size with limits */
+    font-family: 'Zen Dots', Verdana;
     -webkit-text-stroke-width: 0.09vw;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-color: white;
-    outline: none;
     font-weight: 300;
+    transform: rotate(-6deg);
+    margin-bottom: -5vw; /* Responsive spacing */
 }
-.loader h1{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%)rotate(-6deg);
-    font-size: 8.7vw;
-    font-family: 'Zen Dots',Verdana;
+
+.scramble {
+    font-size: clamp(2rem, 8.7vw, 6rem); /* Responsive font size with limits */
+    font-family: 'Zen Dots', Verdana;
     color: white;
+    transform: rotate(-6deg);
+    margin-bottom: -3vw; /* Responsive spacing */
 }
-.loader p{
-    position: absolute;
-    top: 64%;
-    left: 50%;
-    transform: translate(-57%,-50%)rotate(-6deg);
-    font-size: 3vw;
+
+.sub {
+    font-size: clamp(1rem, 3vw, 2.5rem); /* Responsive font size with limits */
+    font-family: 'Zen Dots', Verdana;
     color: white;
-    font-family: 'Zen Dots',Verdana;
+    transform: rotate(-6deg);
+    margin-top: 1vw; /* Responsive spacing */
 }
-.loading{
-    position: absolute;
-    left: 51%;
-    width: 50%;
-    bottom: 25%;
-    height: 10px;
+
+.loading {
+    width: 80%; /* More reasonable width for mobile */
+    max-width: 400px; /* Limit maximum width */
+    height: 6px; /* Fixed height works better for mobile */
     background-color: white;
-    transform: translate(-50%,-50%)rotate(-6deg);
+    transform: rotate(-6deg);
     border-radius: 2px;
     overflow: hidden;
-    display: inline-block;
+    margin-top: 5vh; /* Responsive spacing */
+    position: relative;
 }
-.loading::after{
+
+.loading::after {
     content: "";
+    position: absolute;
     left: 0;
     top: 0;
     width: 0;
-    position: absolute;
-    bottom: 10%;
     height: 100%;
     border-radius: 2px;
     animation: load 4s linear;
 }
-@keyframes load{
-    0%{
-        width: 0;
-        background-color: rgb(255, 115, 0);
+
+/* Keyframes remain the same but are included for completeness */
+@keyframes load {
+    0% { width: 0; background-color: rgb(255, 115, 0); }
+    25% { width: 25%; background-color: rgb(255, 153, 0); }
+    50% { width: 50%; background-color: rgb(0, 255, 140); }
+    75% { width: 75%; background-color: rgb(0, 247, 255); }
+    100% { width: 100%; background-color: rgb(0, 157, 255); }
+}
+
+@keyframes bgload {
+    0% { background-color: rgb(255, 255, 255); }
+    25% { background-color: rgb(228, 198, 89); }
+    50% { background-color: rgb(231, 171, 75); }
+    75% { background-color: rgb(255, 208, 0); }
+    100% { background-color: rgb(255, 170, 0); }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .zoom {
+        -webkit-text-stroke-width: 0.5px; /* More visible on small screens */
+        margin-bottom: -8vw;
     }
-    25%{
-        width: 25%;
-        background-color: rgb(255, 153, 0);
-    }
-    50%{
-        width: 50%;
-        background-color: rgb(0, 255, 140);
-    }
-    75%{
-        width: 75%;
-        background-color: rgb(0, 247, 255);
-    }
-    100%{
-        width: 100%;
-        background-color: rgb(0, 157, 255);
+    
+    .loading {
+        height: 4px; /* Thinner on mobile */
+        margin-top: 8vh;
     }
 }
-@keyframes bgload{
-    0%{
-        background-color: rgb(255, 255, 255);
+
+/* Very small screens */
+@media (max-width: 480px) {
+    .zoom {
+        font-size: clamp(2.5rem, 15vw, 4rem);
     }
-    25%{
-        background-color: rgb(228, 198, 89);
+    
+    .scramble {
+        font-size: clamp(1.8rem, 10vw, 3rem);
     }
-    50%{
-        background-color: rgb(231, 171, 75);
+    
+    .sub {
+        font-size: clamp(0.9rem, 4vw, 1.5rem);
     }
-    75%{
-        background-color: rgb(255, 208, 0);
-    }
-    100%{
-        background-color: rgb(255, 170, 0);
-    }
-}
-.container {
-    width: 100%;
-    height: 100%;
-    --color: #E1E1E1;
-    background-color: #F3F3F3;
-    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
-        linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
-    background-size: 55px 55px;
-  }
-  #entry-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    z-index: 1000;
 }
