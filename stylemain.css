@@ -131,6 +131,10 @@ nav ul li a.active:after {
   color: var(--primary-color);
   text-transform: uppercase;
 }
+.hero-subtitle h4{
+  color: #a8a8a8;
+  text-shadow: 1px 1px rgb(67, 67, 67);
+}
 /* .cv-download{
     margin-top: 6vh;
     position: absolute;
@@ -681,9 +685,6 @@ footer {
     text-shadow: 0 2px  rgb(0, 0, 0);
 }
 
-.hero-subtitle h4 {
-    text-shadow: 0 1px 5px  rgb(255, 255, 255);
-}
 /* Add a small animation when clicking the logo */
 .logo h1 {
     cursor: pointer;
