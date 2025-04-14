@@ -10,21 +10,15 @@ tl.to(".loading", {
     delay: 3.5,
 })
 .to(".loader", {
-    opacity: 0,
-    duration: 1,
-    ease: "Expo.easeInOut",
+    backgroundColor: "#ffffff", // First transition to white
+    duration: 0.5,
+    ease: "power1.inOut",
 })
 .to(".loader", {
+    opacity: 0,
     y: "-100%",
-    duration: 1,
-})
-.add(() => {
-    // Smooth fade to white before redirect
-    gsap.to("body", {
-        backgroundColor: "#ffffff",
-        duration: 1,
-        onComplete: () => {
-            window.location.href = "main.html";
-        }
-    });
+    duration: 0.5,
+    onComplete: () => {
+        window.location.href = "main.html";
+    }
 });
