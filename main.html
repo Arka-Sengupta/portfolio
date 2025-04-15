@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="/assets/favicon.jpg" type="image/x-icon">
 </head>
 <body>
-    <div class="photo-shuffler">
+    <!-- <div class="photo-shuffler">
         <div class="shuffle-container">
             <img src="images/1.jpg" alt="Portfolio Image 1" class="active">
             <img src="images/2.jpg" alt="Portfolio Image 2">
@@ -17,7 +17,8 @@
             <img src="images/4.png" alt="Portfolio Image 4">
             <img src="images/5.png" alt="Portfolio Image 5">
         </div>
-    </div>
+    </div> -->
+    
     <header>
         <div class="logo">
             <h1>ARKA SENGUPTA</h1>
@@ -42,16 +43,24 @@
 
     <main>
         <section id="home" class="hero">
+            <div class="hero-model">
+                <spline-viewer url="https://prod.spline.design/qGdhtyPDKU9gtkxW/scene.splinecode">
+
+            </div>
             <div class="hero-content">
-                <h2>
-                    WELCOME<br>
-                </h2>
-                <div class="hero-subtitle">
-                    <h4>to Arka Sengupta's online portfolio</h4>
-                    <div class="cv-download" onclick="downloadCV()">
-                        <h4>Download RESUME</h4>
-                    </div>    
-                </div>
+                    <h2>
+                        WELCOME<br>
+                    </h2>
+                    <div class="hero-subtitle">
+                        <p class="mobile-only-message">for full experience visit on desktop</p>
+                        <h4>to Arka Sengupta's online portfolio</h4>
+                        <div class="cv-download" onclick="downloadCV()">
+                            <h4>Download RESUME</h4>
+                        </div>    
+                    </div>
+    
+                </spline-viewer>
+
             </div>
         </section>
 
@@ -253,11 +262,13 @@
         </section>
     </main>
 
+
     <footer>
         <p>&copy; 2025 Arka Sengupta. All rights reserved.<br>Designed and created by Arka Sengupta</p>
     </footer>
 
     <script src="scriptmain.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
 </body>
 </html>
